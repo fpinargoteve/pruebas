@@ -2,6 +2,8 @@ HA$PBExportHeader$w_pruebas.srw
 forward
 global type w_pruebas from window
 end type
+type cb_2 from commandbutton within w_pruebas
+end type
 type cb_1 from commandbutton within w_pruebas
 end type
 end forward
@@ -18,18 +20,37 @@ boolean resizable = true
 long backcolor = 67108864
 string icon = "AppIcon!"
 boolean center = true
+cb_2 cb_2
 cb_1 cb_1
 end type
 global w_pruebas w_pruebas
 
 on w_pruebas.create
+this.cb_2=create cb_2
 this.cb_1=create cb_1
-this.Control[]={this.cb_1}
+this.Control[]={this.cb_2,&
+this.cb_1}
 end on
 
 on w_pruebas.destroy
+destroy(this.cb_2)
 destroy(this.cb_1)
 end on
+
+type cb_2 from commandbutton within w_pruebas
+integer x = 489
+integer y = 752
+integer width = 402
+integer height = 112
+integer taborder = 20
+integer textsize = -10
+integer weight = 400
+fontcharset fontcharset = ansi!
+fontpitch fontpitch = variable!
+fontfamily fontfamily = swiss!
+string facename = "Tahoma"
+string text = "boton"
+end type
 
 type cb_1 from commandbutton within w_pruebas
 integer x = 608
